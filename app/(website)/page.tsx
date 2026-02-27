@@ -18,12 +18,12 @@
          <AboutSection/>
          <Partners/>
         <LatestResults/>
-         <Specialties/>
+         {/* <Specialties/> */}
  
         <UpcomingEvents/>
         
         <Gallery/>
-        <Activities/>
+        {/* <Activities/> */}
         
  
       </main>
