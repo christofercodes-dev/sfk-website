@@ -1,0 +1,151 @@
+.wrapper {
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+.section {
+  padding: 120px 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 40px;
+}
+
+/* CENTRERING AV TITEL */
+.header {
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrerar horisontellt */
+  text-align: center;   /* Centrerar texten */
+}
+
+.boardHeader {
+  margin-top: 100px;
+}
+
+.label {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #8d6e63;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.mainTitle {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #1a1d1a;
+  letter-spacing: -0.02em;
+}
+
+.mainTitle span {
+  font-style: italic;
+  font-weight: 400;
+  color: #f39c12;
+}
+
+.aboutFlow {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.leadText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  text-align: left;
+}
+
+/* LISTAN (Samma som Aktiviteter) */
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.listItem {
+  display: grid;
+  grid-template-columns: 250px 1fr auto; 
+  align-items: center;
+  padding: 35px 0;
+  border-bottom: 1px solid #f0f0f0;
+  text-align: left;
+}
+
+.dateCategoryBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.categoryLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #f39c12;
+}
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.activityTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a1d1a;
+  margin-bottom: 4px;
+}
+
+.metaInfo {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.actionBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.contactLink {
+  font-size: 0.9rem;
+  color: #444;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contactLink:hover {
+  color: #f39c12;
+}
+
+.notice {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.noticeLine {
+  width: 40px;
+  height: 2px;
+  background-color: #f39c12;
+  margin-bottom: 25px;
+}
+
+@media (max-width: 768px) {
+  .listItem {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .actionBox {
+    align-items: flex-start;
+  }
+}

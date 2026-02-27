@@ -1,0 +1,210 @@
+/* --- Sektion & Layout --- */
+.section {
+  padding: 80px 0;
+  background-color: #fdfdfd;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  margin-bottom: 45px;
+}
+
+/* --- Knappen (Ghost-design utan brun bakgrund) --- */
+.archiveBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #000000;
+  border-radius: 4px; /* Rundad modern knapp */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.archiveBtn span {
+  transition: transform 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.archiveBtn:hover {
+  color: #7f7e7e;                /* Texten blir vit */
+ 
+}
+
+.archiveBtn:hover span {
+  transform: translateX(5px);    /* Pilen rör sig */
+}
+
+/* --- Grid & Kort --- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* --- Resten av din styling --- */
+.label {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #8d6e63;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  color: #1a1d1a;
+}
+
+.title span {
+  font-style: italic;
+  font-weight: 400;
+  color: #f39c12;
+}
+
+.imageWrapper {
+  position: relative;
+  height: 300px;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: rgba(26, 29, 26, 0.8);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.content {
+  padding: 25px;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.dogName {
+  font-size: 1.6rem;
+  margin: 0 0 8px 0;
+  color: #1a1d1a;
+  line-height: 1.2;
+}
+
+.eventInfo {
+  color: #8d6e63;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.scoreRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.owner {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.score {
+  font-weight: 800;
+  color: #1a1d1a;
+  font-size: 1.1rem;
+}
+
+/* --- Mobilanpassning --- */
+.mobileLinkWrapper {
+  display: none;
+  margin-top: 40px;
+}
+
+/* LatestResults.module.css */
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.cardLink:hover {
+  transform: translateY(-5px); /* En liten lyft-effekt vid hover */
+}
+
+.readMore {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f39c12;
+  text-transform: uppercase;
+}
+
+/* Gömmer alla kort efter de två första */
+.grid > a:nth-child(n+4) {
+  display: none !important;
+}
+
+@media (max-width: 850px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .topRow .archiveBtn {
+    display: none;
+  }
+
+  .mobileLinkWrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .archiveBtn {
+    width: 100%;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}

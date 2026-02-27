@@ -1,0 +1,147 @@
+.section {
+  padding: 120px 0;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 40px;
+}
+
+/* CENTRERING AV TITEL */
+.header {
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrerar elementen horisontellt */
+  text-align: center;   /* Centrerar texten */
+}
+
+.label {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #8d6e63;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.mainTitle {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #1a1d1a;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.mainTitle span {
+  font-style: italic;
+  font-weight: 400;
+  color: #f39c12;
+}
+
+.headerLine {
+  width: 50px;
+  height: 3px;
+  background-color: #f39c12;
+}
+
+/* GRID & KORT */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #fcfcfc;
+  border: 1px solid #f0f0f0;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.breedTag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #f39c12;
+  letter-spacing: 0.1em;
+}
+
+.kennelName {
+  font-size: 1.5rem;
+  margin: 10px 0 5px 0;
+  color: #1a1d1a;
+}
+
+.breederName {
+  color: #666;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.divider {
+  height: 1px;
+  background: #eee;
+  margin: 20px 0;
+}
+
+.contactInfo {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.infoRow {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mailLink {
+  color: #1a1d1a;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+}
+
+.mailLink:hover {
+  color: #f39c12;
+  border-color: #f39c12;
+}
+
+/* INFO KORT */
+.infoCard {
+  background-color: #1a1d1a;
+  color: white;
+  justify-content: center;
+  text-align: center;
+}
+
+.infoTitle {
+  color: #f39c12;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.infoText {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+
+
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .grid { grid-template-columns: 1fr; }
+}

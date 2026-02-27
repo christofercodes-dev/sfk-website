@@ -1,0 +1,162 @@
+/* --- Sektion & Layout --- */
+.section {
+  padding: 80px 0;
+  background-color: #fdfdfd;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  margin-bottom: 45px;
+}
+
+/* --- Knappen (Matchar din inskickade stil) --- */
+.archiveBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #000000;
+  border-radius: 4px; /* Din specifika kant-radie */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.archiveBtn span {
+  transition: transform 0.3s ease;
+  font-size: 1rem;
+  
+}
+
+.archiveBtn:hover {
+  color: #7f7e7e;                /* Texten blir vit */
+
+}
+
+.archiveBtn:hover span {
+  transform: translateX(5px);
+}
+
+/* --- Mosaik-grid --- */
+.mosaic {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 250px 250px;
+  gap: 20px;
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: 4px; /* Matchar korten i LatestResults */
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  background: #eee;
+}
+
+.large {
+  grid-row: span 2;
+  height: 520px; /* 250px + 250px + 20px gap */
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.imageWrapper:hover .image {
+  transform: scale(1.03);
+}
+
+/* --- Rubrik & Text --- */
+.label {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #8d6e63;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  color: #1a1d1a;
+}
+
+.title span {
+  font-style: italic;
+  font-weight: 400;
+  color: #f39c12;
+}
+
+/* --- Mobilanpassning --- */
+.mobileLinkWrapper {
+  display: none;
+  margin-top: 40px;
+}
+
+.mobileLinkWrapper {
+  display: none;
+  margin-top: 30px;
+}
+
+@media (max-width: 900px) {
+  .topRow {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 35px;
+  }
+
+  /* Göm knappen i toppen på mobil */
+  .topRow .archiveBtn {
+    display: none;
+  }
+
+  /* Visa knappen längst ner */
+  .mobileLinkWrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .archiveBtn {
+    width: 100%;
+    justify-content: center;
+    padding: 16px;
+  }
+
+  /* Gör mosaiken till en vertikal lista med bra höjd */
+  .mosaic {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 15px;
+  }
+
+  .imageWrapper {
+    height: 250px; /* Standardhöjd för alla bilder på mobil */
+  }
+
+  .large {
+    grid-row: span 1;
+    height: 350px; /* Den stora bilden förblir lite större */
+  }
+
+  .title {
+    font-size: 2.1rem;
+  }
+
+  .section {
+    padding: 2px;
+    padding-bottom: 50px;
+  }
+}

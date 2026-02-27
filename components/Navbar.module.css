@@ -1,0 +1,317 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* Denna kan ibland orsaka problem med padding */
+  max-width: 100vw; /* Säkerställer att den aldrig är bredare än skärmen */
+  z-index: 1000;
+  padding: 1px 0;
+  background-color: #0e1d13;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-sizing: border-box; /* Mycket viktigt! Inkluderar padding i bredden */
+}
+
+.container {
+  width: 100%; /* Istället för max-width enbart */
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px; /* Minskad padding för att inte "trycka ut" innehållet på små skärmar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box; /* Förhindrar att padding läggs till på bredden */
+}
+
+
+.logo {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.logoMain {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #f39c12;
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+
+.logoSub {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: #f39c12;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #f39c12;
+  transition: width 0.3s ease;
+}
+
+.link:hover {
+  color: #f39c12;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.ctaButton {
+  text-decoration: none;
+  background-color: #f39c12;
+  color: #fff;
+  padding: 10px 22px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+/* ... (behåll din befintliga navbar, logo och desktop-css) ... */
+
+.mobileToggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001; /* Alltid över menyn */
+  padding: 0;
+}
+
+.mobileToggle span {
+  width: 28px;
+  height: 2px;
+  background-color: #ffffff;
+  transition: all 0.3s ease-in-out;
+  border-radius: 2px;
+}
+
+/* Kryss-animation */
+.toggleOpen span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.toggleOpen span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.toggleOpen span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+
+.mobileLinksWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px; /* Kompaktare gap för att inte bli för långt */
+  width: 100%;
+}
+
+.mobileNavLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem; /* Något mindre för att spara plats */
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.mobileCta {
+  margin-top: 15px;
+  color: #f39c12 !important;
+  border: 1px solid #f39c12;
+  padding: 12px 35px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+}
+
+/* Lägg till i Navbar.module.css */
+.noScroll {
+  overflow: hidden;
+  height: 100vh;
+  position: fixed; /* Detta är det enda som garanterat stoppar iOS Safari */
+  width: 100%;
+}
+
+@media (max-width: 968px) {
+  .navLinks {
+    display: none;
+  }
+  .mobileToggle {
+    display: flex;
+  }
+
+  .navbar {
+    padding: 15px 0;
+  }
+}
+
+@media (max-width: 968px) {
+  .navLinks {
+    display: none;
+  }
+
+  .mobileToggle {
+    display: flex;
+    margin-left: auto; /* Trycker hamburgaren till höger när loggan är centrerad */
+  }
+
+  .navbar {
+    padding: 10px 0; /* Något mindre padding för en nättare navbar */
+  }
+
+  .container {
+    position: relative; /* Krävs för att loggan ska kunna centreras absolut */
+    height: 50px; /* Definiera en höjd så allt ligger linjärt */
+    justify-content: flex-end; /* MobileToggle hamnar till höger */
+  }
+
+  /* CENTRERING OCH STORLEK PÅ LOGGA */
+  .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Denna rad sköter den exakta centreringen */
+    text-align: center;
+    width: auto;
+  }
+
+  .logoMain {
+    font-size: 1.1rem; /* Mindre font på mobil */
+    letter-spacing: 0.05em;
+  }
+
+  .logoSub {
+    font-size: 0.5rem; /* Mindre sub-text */
+    letter-spacing: 0.15em;
+    margin-top: 2px;
+  }
+}
+
+
+/* Mobil Meny Overlay - Grundläge */
+/* Mobil Meny Overlay - Grundläge (Stängd) */
+.mobileMenu {
+  position: fixed;
+  top: 70px;
+  right: 0;
+  width: 100%;
+  height: 100dvh;
+  background-color: #0e1d13;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  box-sizing: border-box;
+  
+  /* Skicka ut den till höger */
+  transform: translateX(100%); 
+  
+  /* Denna transition sköter både in- OCH ut-glidningen */
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), visibility 0.5s;
+  
+  /* Dölj den helt när den är stängd */
+  visibility: hidden; 
+}
+
+/* Öppet läge */
+.menuOpen {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+/* Uppdatera din Toggle-knapp så den garanterat ligger överst */
+.mobileToggle {
+  /* ... dina tidigare styles ... */
+  z-index: 1000; /* Ett steg högre än mobileMenu */
+}
+
+/* Kontaktinfo i mobilmenyn */
+.mobileContactInfo {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease 0.3s; /* 0.3s delay så den dyker upp sist */
+}
+
+/* När menyn är öppen, visa kontaktinfo */
+.menuOpen .mobileContactInfo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contactDivider {
+  width: 100px;
+  height: 1px;
+  background-color: #f39c12;
+  margin: 0 auto 20px;
+  opacity: 0.2;
+}
+
+.contactItem {
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  font-weight: 300;
+  transition: color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.contactItem:hover {
+  color: #f39c12;
+}
+
+/* Fix för att förhindra hela sidan från att skaka/scurla i sidled */
+:global(html), :global(body) {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}

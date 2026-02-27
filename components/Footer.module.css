@@ -1,0 +1,193 @@
+.footer {
+  background-color: #0e1d13; /* British Racing Green */
+  color: #e0e0e0;
+  padding: 100px 0 40px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 80px;
+  margin-bottom: 80px;
+}
+
+/* --- Branding --- */
+.logoArea {
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.logoText {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #f39c12;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.est {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 320px;
+}
+
+/* --- Navigation --- */
+.columnTitle {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #f39c12;
+  margin-bottom: 35px;
+  font-weight: 800;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navList li {
+  margin-bottom: 18px;
+}
+
+.navList a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.navList a:hover {
+  opacity: 1;
+  padding-left: 8px;
+  color: #f39c12;
+}
+
+/* --- Heritage Cards --- */
+.contactSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.heritageCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.heritageCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: #f39c12;
+}
+
+.cardTag {
+  display: block;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #f39c12;
+  margin-bottom: 5px;
+}
+
+.cardName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #fff;
+}
+
+.cardEmail {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: color 0.3s;
+}
+
+.cardEmail:hover {
+  color: #fff;
+}
+
+/* ... tidigare stilar förblir desamma ... */
+
+.socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Diskret ram */
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.socialIcon:hover {
+  border-color: #f39c12; /* Accentfärgen vid hovring */
+  color: #f39c12;
+  transform: translateY(-3px);
+  background-color: rgba(243, 156, 18, 0.05); /* Väldigt svagt guldskimmer */
+}
+
+/* Om du vill att ikonerna ska vara lite mer dämpade när man inte hovrar */
+.socialIcon svg {
+  opacity: 0.8;
+}
+
+/* --- Bottom Bar --- */
+.bottomBar {
+  margin-top: 40px;
+}
+
+.bottomLine {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 30px;
+}
+
+.bottomContent {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.traditionText {
+  font-style: italic;
+  font-family: serif;
+}
+
+/* --- Responsive --- */
+@media (max-width: 950px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}

@@ -1,0 +1,176 @@
+.section {
+  padding: 50px 20px;
+  background-color: #0e1d13;
+  /* background-color: #2d3e2f; */
+  color: #f4f1ee;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.label {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #f39c12;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.mainTitle {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+
+.mainTitle span {
+  font-style: italic;
+  font-weight: 400;
+  color: #f39c12;
+}
+
+.introText {
+  color: #a0a8a1;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+/* Timeline Layout */
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 30px;
+  position: relative;
+}
+
+.indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #f39c12;
+  border-radius: 50%;
+  margin-top: 10px;
+  box-shadow: 0 0 15px rgba(243, 156, 18, 0.4);
+}
+
+.line {
+  width: 1px;
+  background: linear-gradient(to bottom, #f39c12, transparent);
+  flex-grow: 1;
+  margin: 10px 0;
+  opacity: 0.3;
+}
+
+.item:last-child .line {
+  display: none;
+}
+
+.content {
+  padding-bottom: 80px;
+}
+
+.date {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #f39c12;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.text {
+  line-height: 1.8;
+  color: #a0a8a1;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+}
+
+.infoGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 30px;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detail {
+  font-size: 0.85rem;
+  color: #f4f1ee;
+  opacity: 0.8;
+  position: relative;
+}
+
+.detail::before {
+  content: "•";
+  margin-right: 8px;
+  color: #f39c12;
+}
+
+/* --- Responsivitet --- */
+
+@media (max-width: 850px) {
+  .section {
+    padding: 80px 20px;
+  }
+  
+  .header {
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 650px) {
+  .item { 
+    gap: 20px; 
+    grid-template-columns: 30px 1fr; /* Smalare tidslinje-kolumn */
+  }
+  
+  .title { 
+    font-size: 1.5rem; 
+    margin-bottom: 0.8rem;
+  }
+
+  .mainTitle {
+    font-size: 2.2rem;
+  }
+
+  .content { 
+    padding-bottom: 60px; 
+  }
+
+  .text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .infoGrid {
+    flex-direction: column; /* Stapla detaljer på små skärmar */
+    gap: 10px;
+  }
+}

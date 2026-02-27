@@ -1,0 +1,110 @@
+.wrapper {
+  padding: 60px 20px;
+  background-color: #fcfcfc; /* Mycket ljusgrå för att bryta av mot det kritvita */
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  opacity: 0.6;
+}
+
+.label {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #8d6e63;
+  white-space: nowrap;
+}
+
+.line {
+  height: 1px;
+  background-color: #eee;
+  flex-grow: 1;
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.logoWrapper {
+  position: relative;
+  height: 40px;
+  width: 140px;
+  filter: grayscale(100%);
+  opacity: 0.4;
+  transition: all 0.4s ease;
+}
+
+.logoWrapper:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.logo {
+  object-fit: contain;
+}
+
+/* --- Responsivitet --- */
+
+@media (max-width: 850px) {
+  .wrapper {
+    padding: 60px 20px;
+  }
+
+  .header {
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .grid {
+    /* Vid tablet/mobil kör vi 2 eller 3 kolumner beroende på bredd */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    justify-content: center; /* Centrerar texten om linjen blir för kort */
+  }
+
+  .line {
+    /* Linjen kan döljas på extremt små skärmar om det blir för trångt */
+    display: none; 
+  }
+
+  .grid {
+    /* 2 logotyper i bredd på små mobiler */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .logoWrapper {
+    height: 40px;
+    opacity: 0.6; /* Något högre opacity på mobil då man inte kan hovra */
+  }
+}
+
+/* Optimerar för enheter som faktiskt har hovring (ej touch) */
+@media (hover: none) {
+  .logoWrapper {
+    filter: grayscale(0%); /* Visa färg direkt på mobil för bättre tydlighet */
+    opacity: 0.7;
+  }
+}

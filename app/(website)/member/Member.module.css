@@ -1,0 +1,266 @@
+/* --- Bas & Layout --- */
+.wrapper {
+  background-color: #ffffff;
+  color: #1a1d1a;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.containerSmall {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* --- Hero Section --- */
+.hero {
+  padding: 160px 20px 80px;
+  text-align: center;
+  background-color: #fcfcfc;
+}
+
+.label {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #8d6e63;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: #1a1d1a;
+}
+
+.title span {
+  font-style: italic;
+  font-weight: 400;
+  color: #f39c12; /* Mässing */
+}
+
+.subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* --- Förmåner (List Section) --- */
+.listSection {
+  padding: 100px 20px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.listTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: #1a1d1a;
+}
+
+.line {
+  height: 1px;
+  background: #eee;
+  width: 100%;
+}
+
+.benefitList {
+  display: flex;
+  flex-direction: column;
+}
+
+.listItem {
+  display: flex;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: padding-left 0.3s ease;
+}
+
+.listItem:hover {
+  padding-left: 20px;
+}
+
+.listNumber {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ccc;
+  min-width: 60px;
+  padding-top: 5px;
+}
+
+.listText h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #1a1d1a;
+}
+
+.listText p {
+  color: #666;
+  line-height: 1.5;
+}
+
+/* --- Pris-box (Mörk sektion) --- */
+.priceSection {
+  padding: 80px 20px;
+  background-color: #ffffff;
+}
+
+.enrollmentBox {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #1a1d1a;
+  padding: 4rem;
+  border-radius: 2px;
+  color: #ffffff;
+}
+
+.enrollRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.enrollInfo h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.enrollInfo p {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.enrollPrice {
+  text-align: right;
+}
+
+.amount {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.currency {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: #f39c12;
+}
+
+.terms {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.5;
+}
+
+.ctaSection {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.containerSmall {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.ctaCard {
+    background: #0e1d13;
+    padding: 50px;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.ctaTitle {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.ctaText {
+    color: #fff;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    font-size: 1.1rem;
+}
+
+.primaryBtn {
+    display: inline-block;
+    background-color: #f39c12; /* Din orangea accentfärg */
+    color: white;
+    padding: 18px 35px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.primaryBtn:hover {
+    background-color: #e67e22;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
+}
+
+.termsSmall {
+    margin-top: 25px;
+    font-size: 0.8rem;
+    color: #dadada;
+}
+
+/* Mobilanpassning */
+@media (max-width: 600px) {
+    .ctaCard {
+        padding: 30px 20px;
+    }
+    .ctaTitle {
+        font-size: 1.6rem;
+    }
+}
+
+/* --- Responsivitet --- */
+@media (max-width: 768px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .enrollRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  
+  .enrollmentBox {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .formCard {
+    padding: 30px 20px;
+  }
+  
+  .hero {
+    padding-top: 120px;
+  }
+}

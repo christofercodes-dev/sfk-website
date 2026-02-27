@@ -1,0 +1,174 @@
+.wrapper {
+  background-color: #ffffff;
+  min-height: 100vh;
+  color: #1a1a1a;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.containerSmall {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/* HEADER */
+.header {
+  padding: 120px 0 60px;
+  text-align: center;
+}
+
+.breadcrumb {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #f39c12;
+}
+
+.mainTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 40px;
+  line-height: 1.1;
+}
+
+.metaRow {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  padding-top: 30px;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.metaLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #999;
+  letter-spacing: 0.1em;
+}
+
+.metaValue {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* IMAGE SECTION */
+.imageSection {
+  padding-bottom: 60px;
+}
+
+.imageContainer {
+  max-width: 900px; /* Gjorde containern smalare för att matcha texten bättre */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.mainImage {
+  width: 100%;
+  max-height: 500px; /* Begränsar höjden så den inte tar över hela skärmen */
+  object-fit: cover; /* Ser till att bilden fyller ut ytan snyggt även om den beskärs något */
+  border-radius: 4px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.06); /* Mjukare skugga för lyxigare känsla */
+  display: block;
+}
+
+.imageCaption {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #888;
+  margin-top: 15px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+/* CONTENT */
+.contentSection {
+  background-color: #fcfcfc; /* Mycket svag nyans för att lyfta resultatdelen */
+  padding: 100px 0;
+}
+
+.resultsCard {
+  background: white;
+  padding: 60px;
+  border: 1px solid #eee;
+  border-radius: 2px;
+}
+
+.resultsTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative;
+}
+
+.resultsTitle::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #f39c12;
+  margin: 15px auto 0;
+}
+
+.resultBody {
+  font-size: 1.1rem;
+  line-height: 2;
+  color: #333;
+  white-space: pre-line;
+}
+
+.footer {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.shareLine {
+  width: 100%;
+  height: 1px;
+  background: #eee;
+  margin-bottom: 40px;
+}
+
+.backBtn {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.backBtn:hover {
+  color: #f39c12;
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-top: 50px;
+  }
+  .metaRow {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .resultsCard {
+    padding: 30px;
+  }
+  .header {
+    padding-top: 80px;
+  }
+}

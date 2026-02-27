@@ -1,0 +1,199 @@
+.wrapper {
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+.section {
+  padding: 120px 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Centrerad Header & Filter */
+.header {
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.label {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #8d6e63;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.mainTitle {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #1a1d1a;
+  letter-spacing: -0.02em;
+  margin-bottom: 40px;
+}
+
+.mainTitle span {
+  font-style: italic;
+  font-weight: 400;
+  color: #f39c12;
+}
+
+.filterNav {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  background: none;
+  border: 1px solid #eee;
+  padding: 10px 22px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #666; /* En standardfärg för icke-aktiva knappar */
+}
+
+/* ÄNDRING HÄR: Hovra bara om knappen INTE är aktiv */
+.filterBtn:not(.activeFilter):hover {
+  border-color: #0e1d13;
+  color: #0e1d13;
+}
+
+.activeFilter {
+  background-color: #0e1d13;
+  border-color: #0e1d13;
+  color: white !important; /* !important säkerställer att färgen förblir vit */
+  cursor: default; /* Visar att den redan är vald */
+}
+
+/* Listan (Bred stil) */
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.listItem {
+  display: grid;
+  grid-template-columns: 200px 1fr auto; 
+  align-items: center;
+  padding: 35px 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: transform 0.3s ease;
+}
+
+.listItem:hover {
+  transform: translateX(10px);
+}
+
+.dateCategoryBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.dayMonth {
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: #1a1d1a;
+  line-height: 1;
+}
+
+.categoryLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #f39c12;
+  margin-top: 5px;
+}
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.activityTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a1d1a;
+  margin-bottom: 4px;
+}
+
+.metaInfo {
+  font-size: 0.85rem;
+  color: #999;
+  font-weight: 500;
+}
+
+.actionBox {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.detailsLink {
+  font-size: 0.9rem;
+  color: #444;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 2px;
+}
+
+.detailsLink:hover {
+  color: #f39c12;
+  border-color: #f39c12;
+}
+
+/* Notice */
+.notice {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.noticeLine {
+  width: 40px;
+  height: 2px;
+  background-color: #f39c12;
+  margin-bottom: 25px;
+}
+
+.notice p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #666;
+  font-style: italic;
+}
+
+.emptyText {
+  text-align: center;
+  padding: 50px;
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  .listItem {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 30px 0;
+  }
+  .actionBox {
+    justify-content: flex-start;
+  }
+}

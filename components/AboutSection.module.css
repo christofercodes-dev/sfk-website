@@ -1,0 +1,181 @@
+/* --- Sektion & Layout --- */
+.section {
+  padding: 100px 0;
+  background-color: #ffffff; /* Eller #fdfdfd för att matcha de andra */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* --- Textinnehåll --- */
+.label {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #8d6e63;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0 0 25px 0;
+  color: #1a1d1a;
+  line-height: 1.1;
+}
+
+.title span {
+  font-style: italic;
+  font-weight: 400;
+  color: #f39c12;
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: #1a1d1a;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.content p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 20px;
+
+}
+
+/* --- Statistik --- */
+.statsRow {
+  display: flex;
+  gap: 40px;
+  margin: 40px 0;
+  padding: 30px 0;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1a1d1a;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #8d6e63;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* --- Knappen (Matchar din valda stil) --- */
+.archiveBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #f39c12;
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 4px; /* Din specifika kant-radie */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.archiveBtn span {
+  transition: transform 0.3s ease;
+}
+
+.archiveBtn:hover {
+  background-color: #f39c12;
+  color: #0e1d13;
+  box-shadow: 0 8px 20px rgba(243, 156, 18, 0.2);
+  transform: translateY(-2px);
+}
+
+.archiveBtn:hover span {
+  transform: translateX(5px);
+}
+
+/* --- Bildkolumn --- */
+.imageColumn {
+  position: relative;
+}
+
+.imageFrame {
+  position: relative;
+  height: 550px;
+  width: 100%;
+  border-radius: 4px;
+  overflow: visible; /* För att den dekorativa boxen ska synas */
+}
+
+.mainImage {
+  object-fit: cover;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.decorativeBox {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background-color: #f8f5f2;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.caption {
+  display: block;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #999;
+  text-align: right;
+}
+
+/* --- Mobilanpassning --- */
+@media (max-width: 950px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .imageFrame {
+    height: 400px;
+  }
+
+  .statsRow {
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  .archiveBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
