@@ -81,7 +81,7 @@
 .linkCard:hover {
     background: #fff;
     border-color: #ddd;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     transform: translateY(-3px);
 }
 
@@ -110,22 +110,246 @@
     opacity: 1;
 }
 
-/* Övrigt-länkar */
+/* =========================================================
+   ÖVRIGA LÄNKAR
+   ========================================================= */
+
 .otherGrid {
-    display: flex;
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
 }
 
 .simpleLink {
-    padding: 12px 25px;
-    background: #1a1a1a;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background 0.2s;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 54px;
+  padding: 0 18px 0 20px;
+
+  background: #f8f8f8;
+  color: #1a1a1a;
+
+  border: 1px solid #e8e8e8;
+  border-radius: 9px;
+
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.simpleLink::after {
+  content: "→";
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  margin-left: 15px;
+
+  color: #777;
+  font-size: 1rem;
+
+  border-radius: 50%;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .simpleLink:hover {
-    background: #444;
+  background: #fff;
+  border-color: #d8d8d8;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.06);
+
+  transform: translateY(-2px);
+}
+
+.simpleLink:hover::after {
+  color: #fff;
+  background: #1a1a1a;
+  transform: translateX(3px);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .otherGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================================
+   MOBIL
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .otherGrid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .simpleLink {
+    min-height: 52px;
+    padding: 0 16px 0 18px;
+
+    border-radius: 8px;
+  }
+
+  /*
+   * På touch vill vi inte ha hover-animationen.
+   */
+  .simpleLink:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .simpleLink::after {
+    width: 27px;
+    height: 27px;
+  }
+}
+
+
+
+/* ========================================================= TABLET ========================================================= */
+@media (max-width: 900px) {
+    .linksSection {
+        padding: 65px 0;
+    }
+
+    .category {
+        margin-bottom: 60px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .linkCard {
+        min-height: 125px;
+        padding: 20px 45px 20px 20px;
+    }
+}
+
+/* ========================================================= MOBIL ========================================================= */
+@media (max-width: 600px) {
+    .linksSection {
+        padding: 50px 0;
+    }
+
+    .category {
+        margin-bottom: 50px;
+    }
+
+    .categoryTitle {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+    }
+
+    /* En kolumn på mobil */
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    /* Link card */
+    .linkCard {
+        min-height: 0;
+        padding: 19px 50px 19px 18px;
+        border-radius: 9px;
+    }
+
+    .shortName {
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+
+    .fullName {
+        font-size: 0.82rem;
+        line-height: 1.4;
+    }
+
+    /* * På touch ska pilen alltid synas. * :hover är inte tillförlitligt på mobil. */
+    .arrow {
+        right: 16px;
+        bottom: 50%;
+        width: 26px;
+        height: 26px;
+        opacity: 0.45;
+        transform: translateY(50%);
+    }
+
+    .linkCard:hover .arrow {
+        transform: translate(3px, 50%);
+    }
+
+    /* * Ingen "lyftning" på mobil. * Det känns renare vid touch. */
+    .linkCard:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    /* Övriga länkar */
+    .otherGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .simpleLink {
+        width: 100%;
+        min-height: 48px;
+        box-sizing: border-box;
+        padding: 13px 18px;
+        border-radius: 7px;
+    }
+}
+
+/* ========================================================= EXTRA SMÅ MOBILER ========================================================= */
+@media (max-width: 380px) {
+    .linksSection {
+        padding: 40px 0;
+    }
+
+    .categoryTitle {
+        font-size: 1.1rem;
+    }
+
+    .linkCard {
+        padding: 17px 46px 17px 16px;
+    }
+
+    .shortName {
+        font-size: 0.95rem;
+    }
+
+    .fullName {
+        font-size: 0.78rem;
+    }
+
+    .arrow {
+        right: 14px;
+    }
 }
