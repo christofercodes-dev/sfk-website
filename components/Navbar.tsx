@@ -113,7 +113,6 @@ export default function Navbar({ forceSolid = false }: NavbarProps) {
           {/* KONTAKTINFO UNDER KNAPPEN */}
           <div className={styles.mobileContactInfo}>
             <div className={styles.contactDivider}></div>
-            <a href="tel:0707858927" className={styles.contactItem}>070 785 89 27</a>
             <a href="mailto:info@sodrafagelhundklubben.se" className={styles.contactItem}>info@sodrafagelhundklubben.se</a>
 
           </div>
