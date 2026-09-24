@@ -36,6 +36,8 @@ export default function Footer() {
               <li><Link href="/breeders">Uppfödare</Link></li>
               <li><Link href="/member">Medlemskap</Link></li>
               <li><Link href="/board">Om oss</Link></li>
+              <li><Link href="/links">Länkar</Link></li>
+
             </ul>
           </div>
 

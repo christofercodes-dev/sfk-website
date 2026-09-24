@@ -1,155 +1,591 @@
 .main {
   background-color: #fcfcfc;
   color: #2d2d2d;
+  min-height: 100vh;
   padding-bottom: 100px;
 }
 
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Header */
+/* =========================
+   LOADING / ERROR
+========================= */
+
+.loading,
+.error {
+  min-height: 60vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  font-size: 1rem;
+  color: #777;
+}
+
+/* =========================
+   HEADER
+========================= */
+
 .header {
   padding: 140px 0 60px;
+
   text-align: center;
+
   background: #fff;
   border-bottom: 1px solid #eee;
 }
 
 .infoLine {
+  margin-bottom: 15px;
+
   text-transform: uppercase;
+
   font-size: 0.8rem;
   letter-spacing: 2px;
+
   color: #888;
-  margin-bottom: 15px;
 }
 
 .title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 300; /* Tunnare typsnitt för "clean" look */
-  color: #1a1a1a;
   margin: 0;
+
+  color: #1a1a1a;
+
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 300;
+
+  line-height: 1.1;
 }
 
 .typeTag {
   margin-top: 15px;
-  font-style: italic;
+
   color: #555;
+
+  font-style: italic;
 }
 
-/* Story Card - Textrutan för "Dagen" */
+/* =========================
+   STORY / OM DAGEN
+========================= */
+
 .storySection {
-  padding: 60px 20px;
   display: flex;
   justify-content: center;
+
+  padding: 60px 20px;
 }
 
 .storyCard {
-  background: #ffffff;
-  max-width: 750px;
   width: 100%;
+  max-width: 750px;
+
   padding: 60px;
-  border-radius: 8px;
-  box-shadow: 0 4px 25px rgba(0,0,0,0.03); /* Mycket mjuk skugga */
+
+  background: #fff;
+
   border: 1px solid #f0f0f0;
+  border-radius: 8px;
+
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03);
 }
 
 .storyTitle {
-  font-size: 1.5rem;
-  margin-bottom: 30px;
+  margin: 0 0 30px;
+
   text-align: center;
+
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .prose {
-  line-height: 1.8;
-  font-size: 1.1rem;
   color: #444;
+
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 .judgeSignature {
   margin-top: 40px;
-  font-weight: 600;
-  font-size: 0.9rem;
+
   color: #777;
+
   text-align: right;
+
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
-/* Gallery Grid */
+/* =========================
+   GALLERY
+========================= */
+
 .gallerySection {
   padding: 40px 0;
 }
 
 .galleryTitle {
-  margin-bottom: 40px;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  margin: 0 0 40px;
+
   text-align: center;
+
+  color: #2d2d2d;
+
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+  grid-template-columns: repeat(3, 1fr);
+
   gap: 30px;
 }
 
+/* =========================
+   IMAGE CARD
+========================= */
+
 .card {
-  background: #fff;
-  border-radius: 12px;
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
   overflow: hidden;
-  border: 1px solid #eee;
-  transition: transform 0.3s ease;
+
+  margin: 0;
+  padding: 0;
+
+  background: #f5f5f5;
+
+  border: 0;
+  border-radius: 12px;
 }
+
+/* Ingen hover-effekt */
 
 .card:hover {
-  transform: translateY(-8px);
+  transform: none;
 }
 
-.imageWrapper {
+/* =========================
+   IMAGE BUTTON
+========================= */
+
+.imageButton {
   position: relative;
-  aspect-ratio: 1/1; /* Kvadratiska bilder för gallerikänsla */
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  outline: none;
+
+  background: transparent;
+
+  cursor: zoom-in;
+
+  appearance: none;
+  -webkit-appearance: none;
 }
+
+.imageButton:hover {
+  transform: none;
+  background: transparent;
+}
+
+.imageButton:focus-visible {
+  outline: 2px solid #f39c12;
+  outline-offset: -2px;
+}
+
+/* =========================
+   IMAGE
+========================= */
 
 .img {
   object-fit: cover;
 }
 
-.placementBadge {
+/* =========================
+   NO PHOTO
+========================= */
+
+.noPhoto {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  background: #f5f5f5;
+
+  color: #999;
+
+  font-size: 0.9rem;
+}
+
+/* ==================================================
+   LIGHTBOX
+================================================== */
+
+.lightbox {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  width: 100vw;
+  height: 100vh;
+
+  animation: lightboxFadeIn 0.2s ease-out;
+}
+
+/* ==================================================
+   HELA MÖRKA BAKGRUNDEN
+
+   Detta element täcker exakt hela skärmen.
+
+   Klick på:
+   - vänster
+   - höger
+   - ovanför
+   - under
+   - runt bilden
+
+   stänger lightboxen.
+================================================== */
+
+.lightboxBackdrop {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  background: #f39c12;
-  color: #fff;
-  padding: 5px 15px;
-  font-weight: bold;
-  font-size: 0.9rem;
-}
 
-.cardContent {
-  padding: 20px;
-}
+  inset: 0;
 
-.cardContent h3 {
-  margin: 0 0 10px;
-  font-size: 1.1rem;
-}
+  z-index: 1;
 
-.cardContent p {
-  font-size: 0.9rem;
-  color: #666;
+  width: 100%;
+  height: 100%;
+
   margin: 0;
+  padding: 0;
+
+  border: 0;
+
+  background: rgba(0, 0, 0, 0.92);
+
+  cursor: zoom-out;
+
+  appearance: none;
+  -webkit-appearance: none;
 }
+
+/* ==================================================
+   SJÄLVA BILDEN
+
+   OBS:
+   pointer-events: none gör att detta område
+   INTE kan blockera bakgrundens klick.
+================================================== */
+
+.lightboxImage {
+  position: absolute;
+
+  z-index: 2;
+
+  top: 50%;
+  left: 50%;
+
+  width: min(90vw, 1400px);
+  height: min(85vh, 900px);
+
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+
+  animation: imageFadeIn 0.25s ease-out;
+}
+
+/* Själva bilden */
+
+.fullImage {
+  object-fit: contain;
+}
+
+/* ==================================================
+   CLOSE BUTTON
+================================================== */
+
+.closeButton {
+  position: absolute;
+
+  top: 20px;
+  right: 25px;
+
+  z-index: 3;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 45px;
+  height: 45px;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+  outline: none;
+
+  background: transparent;
+
+  color: #fff;
+
+  font-size: 40px;
+  font-weight: 300;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.closeButton:hover {
+  background: transparent;
+
+  color: #fff;
+
+  transform: none;
+}
+
+.closeButton:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes lightboxFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes imageFadeIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 .footer {
-  text-align: center;
   margin-top: 80px;
+
+  text-align: center;
 }
 
 .backLink {
   color: #1a1a1a;
-  text-decoration: none;
+
   font-weight: 500;
+
+  text-decoration: none;
+
   border-bottom: 1px solid #1a1a1a;
+
+  transition: opacity 0.2s ease;
+}
+
+.backLink:hover {
+  opacity: 0.6;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+  }
+
+  .storyCard {
+    padding: 45px;
+  }
+
+  .lightboxImage {
+    width: 90vw;
+    height: 85vh;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .main {
+    padding-bottom: 60px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .header {
+    padding: 110px 0 45px;
+  }
+
+  .infoLine {
+    font-size: 0.7rem;
+
+    letter-spacing: 1.5px;
+  }
+
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .typeTag {
+    font-size: 0.9rem;
+  }
+
+  /* STORY */
+
+  .storySection {
+    padding: 40px 15px;
+  }
+
+  .storyCard {
+    padding: 35px 25px;
+  }
+
+  .storyTitle {
+    margin-bottom: 25px;
+
+    font-size: 1.3rem;
+  }
+
+  .prose {
+    font-size: 1rem;
+
+    line-height: 1.7;
+  }
+
+  .judgeSignature {
+    margin-top: 30px;
+
+    font-size: 0.85rem;
+  }
+
+  /* GALLERY */
+
+  .gallerySection {
+    padding: 30px 0;
+  }
+
+  .galleryTitle {
+    margin-bottom: 30px;
+
+    font-size: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  /* LIGHTBOX */
+
+  .lightboxImage {
+    width: 95vw;
+    height: 80vh;
+  }
+
+  .closeButton {
+    top: 10px;
+    right: 10px;
+
+    width: 40px;
+    height: 40px;
+
+    font-size: 35px;
+  }
+
+  /* FOOTER */
+
+  .footer {
+    margin-top: 60px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+  .header {
+    padding-top: 100px;
+  }
+
+  .title {
+    font-size: 2.1rem;
+  }
+
+  .storyCard {
+    padding: 30px 20px;
+  }
+
+  .galleryTitle {
+    font-size: 0.9rem;
+  }
 }
