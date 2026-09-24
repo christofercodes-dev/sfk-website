@@ -1,4 +1,3 @@
-/* --- Sektion & Layout --- */
 .section {
   padding: 80px 0;
   background-color: #fdfdfd;
@@ -10,61 +9,30 @@
   padding: 0 20px;
 }
 
+/* =========================================
+   HEADER
+========================================= */
+
 .topRow {
   display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
   margin-bottom: 45px;
 }
 
-/* --- Knappen (Ghost-design utan brun bakgrund) --- */
-.archiveBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  color: #000000;
-  border-radius: 4px; /* Rundad modern knapp */
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
+.headerContent {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.archiveBtn span {
-  transition: transform 0.3s ease;
-  font-size: 1.1rem;
+.visible .headerContent {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.archiveBtn:hover {
-  color: #7f7e7e;                /* Texten blir vit */
- 
-}
-
-.archiveBtn:hover span {
-  transform: translateX(5px);    /* Pilen rör sig */
-}
-
-/* --- Grid & Kort --- */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-.card {
-  background: #ffffff;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease;
-  border: 1px solid rgba(0,0,0,0.03);
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* --- Resten av din styling --- */
 .label {
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -88,107 +56,292 @@
   color: #f39c12;
 }
 
+/* =========================================
+   ARKIV-KNAPP
+========================================= */
+
+.archiveBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #000000;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+
+  opacity: 0;
+  transform: translateX(25px);
+
+  transition:
+    opacity 0.7s ease 0.2s,
+    transform 0.8s ease 0.2s,
+    color 0.3s ease;
+}
+
+.visible .archiveBtn {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.archiveBtn span {
+  transition: transform 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.archiveBtn:hover {
+  color: #7f7e7e;
+}
+
+.archiveBtn:hover span {
+  transform: translateX(5px);
+}
+
+/* =========================================
+   GRID
+========================================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* =========================================
+   KORT-LÄNK
+========================================= */
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+
+  opacity: 0;
+  transform: translateY(45px);
+
+  transition:
+    opacity 0.8s ease var(--delay),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--delay);
+}
+
+.visible .cardLink {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.visible .cardLink:hover {
+  transform: translateY(-5px);
+}
+
+/* =========================================
+   KORT
+========================================= */
+
+.card {
+  background: #ffffff;
+  border-radius: 4px;
+  min-height: 600px;
+  height: 100%;
+  overflow: hidden;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.05);
+
+  border: 1px solid rgba(0, 0, 0, 0.03);
+
+  display: flex;
+  flex-direction: column;
+
+  transition:
+    box-shadow 0.4s ease;
+}
+
+.cardLink:hover .card {
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.09);
+}
+
+/* =========================================
+   BILD
+========================================= */
+
 .imageWrapper {
   position: relative;
   height: 300px;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
 .image {
   object-fit: cover;
+
+  transform: scale(1.08);
+
+  transition:
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+.visible .image {
+  transform: scale(1);
+}
+
+.cardLink:hover .image {
+  transform: scale(1.04);
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f3f3;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   BADGE
+========================================= */
 
 .badge {
   position: absolute;
   bottom: 15px;
   left: 15px;
+
   background: rgba(26, 29, 26, 0.8);
   backdrop-filter: blur(4px);
-  color: #fff;
+
+  color: #ffffff;
+
   padding: 5px 14px;
   border-radius: 20px;
+
   font-size: 0.7rem;
   font-weight: 700;
 }
 
+/* =========================================
+   INNEHÅLL
+========================================= */
+
 .content {
   padding: 25px;
+
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+  min-height: 0;
 }
+
+/* =========================================
+   DATUM
+========================================= */
 
 .meta {
   display: flex;
   justify-content: space-between;
+
   margin-bottom: 12px;
+
   font-size: 0.85rem;
   color: #999;
 }
 
-.dogName {
-  font-size: 1.6rem;
-  margin: 0 0 8px 0;
-  color: #1a1d1a;
-  line-height: 1.2;
+.date {
+  display: block;
 }
 
-.eventInfo {
-  color: #8d6e63;
-  font-weight: 600;
-  margin-bottom: 20px;
+/* =========================================
+   TITEL
+========================================= */
+
+.dogName {
+  font-size: 1.6rem;
+
+  margin: 0 0 8px 0;
+
+  color: #1a1d1a;
+
+  line-height: 1.2;
+
+  overflow-wrap: anywhere;
 }
+
+/* =========================================
+   SCORE ROW
+========================================= */
 
 .scoreRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  margin-top: auto;
   padding-top: 15px;
+
   border-top: 1px solid #f0f0f0;
+
+  gap: 20px;
 }
 
 .owner {
   font-size: 0.9rem;
   color: #666;
-}
-
-.score {
-  font-weight: 800;
-  color: #1a1d1a;
-  font-size: 1.1rem;
-}
-
-/* --- Mobilanpassning --- */
-.mobileLinkWrapper {
-  display: none;
-  margin-top: 40px;
-}
-
-/* LatestResults.module.css */
-.cardLink {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.cardLink:hover {
-  transform: translateY(-5px); /* En liten lyft-effekt vid hover */
+  min-width: 0;
 }
 
 .readMore {
   font-size: 0.85rem;
   font-weight: 700;
+
   color: #f39c12;
+
   text-transform: uppercase;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
-/* Gömmer alla kort efter de två första */
-.grid > a:nth-child(n+4) {
+.cardLink:hover .readMore {
+  color: #d88700;
+  transform: translateX(4px);
+}
+
+/* =========================================
+   MOBIL-LÄNK
+========================================= */
+
+.mobileLinkWrapper {
+  display: none;
+  margin-top: 40px;
+}
+
+/* =========================================
+   VISA ENDAST TVÅ KORT
+========================================= */
+
+.grid > a:nth-child(n + 3) {
   display: none !important;
 }
 
+/* =========================================
+   MOBIL
+========================================= */
+
 @media (max-width: 850px) {
+  .section {
+    padding: 60px 0;
+  }
+
   .grid {
     grid-template-columns: 1fr;
   }
-  
+
   .topRow .archiveBtn {
     display: none;
   }
@@ -198,13 +351,86 @@
     justify-content: center;
   }
 
-  .archiveBtn {
+  .mobileLinkWrapper .archiveBtn {
+    opacity: 1;
+    transform: none;
+
     width: 100%;
     justify-content: center;
+
     padding: 16px;
   }
 
   .title {
     font-size: 2rem;
+  }
+
+  .card {
+    min-height: 550px;
+  }
+
+  .imageWrapper {
+    height: 300px;
+  }
+}
+
+/* =========================================
+   MINDRE MOBIL
+========================================= */
+
+@media (max-width: 500px) {
+  .section {
+    padding: 50px 0;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .dogName {
+    font-size: 1.4rem;
+  }
+
+  .scoreRow {
+    gap: 10px;
+  }
+
+  .owner {
+    font-size: 0.8rem;
+  }
+
+  .readMore {
+    font-size: 0.75rem;
+  }
+
+  .imageWrapper {
+    height: 250px;
+  }
+
+  .card {
+    min-height: 500px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .headerContent,
+  .archiveBtn,
+  .cardLink,
+  .image {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

@@ -1,0 +1,603 @@
+[
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "t.ex. \"Träningsträff i Lövestad\" eller \"Vinterprov 2026\"",
+        "name": "title",
+        "type": "string",
+        "title": "Namn på aktivitet"
+      },
+      {
+        "initialValue": false,
+        "name": "featured",
+        "type": "boolean",
+        "title": "Prioriterad (Stjärnmärkt)"
+      },
+      {
+        "options": {
+          "step": 15,
+          "dateFormat": "YYYY-MM-DD",
+          "timeFormat": "HH:mm"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "date",
+        "type": "datetime",
+        "title": "Datum och tid"
+      },
+      {
+        "placeholder": "t.ex. Snogeholm eller klubbstugan",
+        "name": "location",
+        "type": "string",
+        "title": "Plats"
+      },
+      {
+        "description": "Berätta vad som händer, samlingstid och eventuell kostnad.",
+        "name": "description",
+        "type": "text",
+        "title": "Beskrivning"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image",
+        "title": "Bild"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Träning",
+              "value": "Träning"
+            },
+            {
+              "title": "Jaktprov",
+              "value": "Jaktprov"
+            },
+            {
+              "title": "Utställning",
+              "value": "Utställning"
+            },
+            {
+              "title": "Möte",
+              "value": "Möte"
+            }
+          ]
+        },
+        "name": "category",
+        "type": "string",
+        "title": "Kategori"
+      },
+      {
+        "description": "Lågt nummer (t.ex. 1) visas först. Högre nummer hamnar längre ner.",
+        "name": "order",
+        "type": "number",
+        "title": "Sorteringsordning"
+      }
+    ],
+    "name": "event",
+    "type": "document",
+    "title": "Aktiviteter"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 3
+              }
+            ],
+            "level": "warning",
+            "message": "Du bör bara välja 3 stycken för att designen ska se bra ut."
+          }
+        ],
+        "description": "Här väljer du de aktiviteter som ska synas i de tre rutorna på förstasidan. Den översta i listan hamnar först.",
+        "of": [
+          {
+            "options": {
+              "disableNew": true
+            },
+            "to": [
+              {
+                "type": "event"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to aktiviteter"
+          }
+        ],
+        "name": "featuredEvents",
+        "type": "array",
+        "title": "Utvalda aktiviteter till startsidan"
+      }
+    ],
+    "name": "siteSettings",
+    "type": "document",
+    "title": "Startsidans innehåll"
+  },
+  {
+    "fields": [
+      {
+        "name": "event",
+        "type": "string",
+        "title": "Tävlingens namn"
+      },
+      {
+        "name": "location",
+        "type": "string",
+        "title": "Plats"
+      },
+      {
+        "name": "date",
+        "type": "date",
+        "title": "Datum"
+      },
+      {
+        "name": "judge",
+        "type": "string",
+        "title": "Domare"
+      },
+      {
+        "name": "type",
+        "type": "string",
+        "title": "Provtyp"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image",
+        "title": "Huvudbild (Hero)"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "description",
+        "type": "array",
+        "title": "Om tävlingen (Text)"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "placement",
+                "type": "string",
+                "title": "Placering (t.ex. 1:a)"
+              },
+              {
+                "name": "name",
+                "type": "string",
+                "title": "Hund & Förare"
+              },
+              {
+                "name": "resultText",
+                "type": "string",
+                "title": "Resultatdetaljer"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "name": "photo",
+                "type": "image",
+                "title": "Bild på ekipaget"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "teams",
+        "type": "array",
+        "title": "Ekipage & Placeringar"
+      }
+    ],
+    "name": "result",
+    "type": "document",
+    "title": "Tävlingsresultat"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "En kort titel för bilden (t.ex. \"Träning i solnedgång\")",
+        "name": "title",
+        "type": "string",
+        "title": "Titel/Namn"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "fields": [
+          {
+            "description": "Beskriv bilden för skärmläsare (viktigt för tillgänglighet)",
+            "name": "alt",
+            "type": "string",
+            "title": "Alternativ text"
+          }
+        ],
+        "name": "image",
+        "type": "image",
+        "title": "Bild"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Träning",
+              "value": "training"
+            },
+            {
+              "title": "Jaktprov",
+              "value": "competition"
+            },
+            {
+              "title": "Gemenskap",
+              "value": "social"
+            }
+          ]
+        },
+        "name": "category",
+        "type": "string",
+        "title": "Kategori"
+      },
+      {
+        "name": "date",
+        "type": "date",
+        "title": "Datum"
+      }
+    ],
+    "name": "gallery",
+    "type": "document",
+    "title": "Galleri"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Kursnamn"
+      },
+      {
+        "description": "Visas i listan (max 150 tecken).",
+        "name": "description",
+        "type": "text",
+        "title": "Kort beskrivning"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "content",
+        "type": "array",
+        "title": "Fullständig information"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image",
+        "title": "Kursbild"
+      },
+      {
+        "placeholder": "t.ex. 1500 kr för medlemmar",
+        "name": "price",
+        "type": "string",
+        "title": "Pris"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Öppen för anmälan",
+              "value": "open"
+            },
+            {
+              "title": "Fullbokad",
+              "value": "full"
+            },
+            {
+              "title": "Planeras",
+              "value": "planned"
+            }
+          ]
+        },
+        "initialValue": "planned",
+        "name": "status",
+        "type": "string"
+      }
+    ],
+    "name": "course",
+    "type": "document",
+    "title": "Kurser"
+  }
+]

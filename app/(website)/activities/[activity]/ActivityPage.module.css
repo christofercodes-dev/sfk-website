@@ -1,0 +1,356 @@
+.main {
+    background-color: #fcfcfc;
+    color: #2d2d2d;
+    min-height: 100vh;
+    padding-bottom: 100px;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* =========================
+     HEADER
+  ========================= */
+  
+  .header {
+    padding: 140px 0 60px;
+    text-align: center;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .infoLine {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: #888;
+    margin-bottom: 18px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .separator {
+    color: #ccc;
+  }
+  
+  .title {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: #1a1a1a;
+    margin: 0 auto;
+    max-width: 900px;
+  }
+  
+  .typeTag {
+    margin: 18px 0 0;
+    font-style: italic;
+    color: #f39c12;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  /* =========================
+     HERO IMAGE
+  ========================= */
+  
+  .heroImageSection {
+    padding: 50px 20px 20px;
+    background: #fcfcfc;
+  }
+  
+  .heroImageWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    height: 550px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #eee;
+  }
+  
+  .heroImage {
+    object-fit: cover;
+  }
+  
+  /* =========================
+     STORY
+  ========================= */
+  
+  .storySection {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .storyCard {
+    background: #ffffff;
+    max-width: 750px;
+    width: 100%;
+    padding: 60px;
+    border-radius: 8px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f0f0f0;
+  }
+  
+  .storyTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 30px;
+    text-align: center;
+    color: #1a1a1a;
+  }
+  
+  .prose {
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: #444;
+  }
+  
+  .prose p {
+    margin: 0 0 1.2rem;
+  }
+  
+  .prose p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .prose h2,
+  .prose h3 {
+    color: #1a1a1a;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .prose ul,
+  .prose ol {
+    padding-left: 1.5rem;
+  }
+  
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* =========================
+     DETAILS
+  ========================= */
+  
+  .detailsSection {
+    padding: 20px 0 40px;
+  }
+  
+  .detailsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  
+  .detail {
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-right: 1px solid #e8e8e8;
+  }
+  
+  .detail:last-child {
+    border-right: none;
+  }
+  
+  .detailLabel {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    color: #999;
+  }
+  
+  .detailValue {
+    font-size: 1rem;
+    color: #1a1a1a;
+    font-weight: 500;
+  }
+
+  .noDescription {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    margin: 0;
+  }
+  
+  .prose p {
+    margin: 0 0 1.2rem;
+  }
+  
+  .prose p:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* =========================
+     FOOTER
+  ========================= */
+  
+  .footer {
+    text-align: center;
+    margin-top: 70px;
+  }
+  
+  .backLink {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+  
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 4px;
+  
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease;
+  }
+  
+  .backLink:hover {
+    color: #f39c12;
+    border-color: #f39c12;
+  }
+  
+  /* =========================
+     ERROR
+  ========================= */
+  
+  .error {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .error h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 25px;
+  }
+  
+  /* =========================
+     TABLET
+  ========================= */
+  
+  @media (max-width: 900px) {
+    .heroImageWrapper {
+      height: 450px;
+    }
+  
+    .detailsGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .detail:nth-child(2) {
+      border-right: none;
+    }
+  
+    .detail:nth-child(-n + 2) {
+      border-bottom: 1px solid #e8e8e8;
+    }
+  }
+  
+  /* =========================
+     MOBIL
+  ========================= */
+  
+  @media (max-width: 768px) {
+    .header {
+      padding: 110px 0 45px;
+    }
+  
+    .infoLine {
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+    }
+  
+    .title {
+      font-size: 2.2rem;
+      padding: 0 15px;
+    }
+  
+    .heroImageSection {
+      padding: 30px 15px 10px;
+    }
+  
+    .heroImageWrapper {
+      height: 320px;
+      border-radius: 5px;
+    }
+  
+    .storySection {
+      padding: 40px 15px;
+    }
+  
+    .storyCard {
+      padding: 35px 25px;
+    }
+  
+    .storyTitle {
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+    }
+  
+    .prose {
+      font-size: 1rem;
+    }
+  
+    .detailsSection {
+      padding: 10px 15px 30px;
+    }
+  
+    .detailsGrid {
+      grid-template-columns: 1fr;
+    }
+  
+    .detail {
+      border-right: none !important;
+      border-bottom: 1px solid #e8e8e8;
+      padding: 22px 15px;
+    }
+  
+    .detail:last-child {
+      border-bottom: none;
+    }
+  
+    .footer {
+      margin-top: 50px;
+    }
+  }
+  
+  /* =========================
+     LITEN MOBIL
+  ========================= */
+  
+  @media (max-width: 480px) {
+    .header {
+      padding-top: 95px;
+    }
+  
+    .title {
+      font-size: 2rem;
+    }
+  
+    .heroImageWrapper {
+      height: 250px;
+    }
+  
+    .storyCard {
+      padding: 30px 20px;
+    }
+  }

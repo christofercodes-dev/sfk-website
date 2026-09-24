@@ -16,7 +16,7 @@
   width: 100%; /* Istället för max-width enbart */
   max-width: 1300px;
   margin: 0 auto;
-  padding: 0 20px; /* Minskad padding för att inte "trycka ut" innehållet på små skärmar */
+  padding: 2px 10px; /* Minskad padding för att inte "trycka ut" innehållet på små skärmar */
   display: flex;
   justify-content: space-between;
   align-items: center;

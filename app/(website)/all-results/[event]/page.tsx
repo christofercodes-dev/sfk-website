@@ -4,86 +4,82 @@ import styles from './EventResult.module.css';
 import { urlFor } from '@/sanity/lib/image';
 import Image from 'next/image';
 import Link from 'next/link';
+import { PortableText } from '@portabletext/react';
 
-export default async function EventPage({ params }: { params: Promise<{ event: string }> }) {
-    const resolvedParams = await params;
-    const decodedEvent = decodeURIComponent(resolvedParams.event);
+export default async function GalleryEventPage({ params }: { params: Promise<{ event: string }> }) {
+    const { event } = await params;
+    const decodedEvent = decodeURIComponent(event);
 
     const query = `*[_type == "result" && event == $event][0]{
-    event,
-    date,
-    type,
-    judge,
-    description,
-    image
-  }`;
+        event, date, location, type, judge, description, image,
+        teams[] { placement, name, resultText, photo }
+    }`;
 
-    const result = await client.fetch(query, { event: decodedEvent }, { next: { revalidate: 0 } });
+    const result = await client.fetch(query, { event: decodedEvent }, { next: { revalidate: 60 } });
 
-    if (!result) return <div className={styles.notFound}>Resultatet hittades inte.</div>;
+    if (!result) return <div className={styles.error}>Resultatet hittades inte.</div>;
 
     return (
-        <main className={styles.wrapper}>
+        <main className={styles.main}>
             <Navbar forceSolid={true} />
 
-            <article className={styles.article}>
-                {/* HEADER - Ren och luftig typografi */}
-                <header className={styles.header}>
-                    <div className={styles.container}>
-                        <div className={styles.breadcrumb}>
-                            <Link href="/all-results">Arkiv</Link> / <span>{result.type}</span>
-                        </div>
-                        <h1 className={styles.mainTitle}>{result.event}</h1>
-                        <div className={styles.metaRow}>
-                            <div className={styles.metaItem}>
-                                <span className={styles.metaLabel}>Datum</span>
-                                <span className={styles.metaValue}>{result.date}</span>
-                            </div>
-                            {result.judge && (
-                                <div className={styles.metaItem}>
-                                    <span className={styles.metaLabel}>Domare</span>
-                                    <span className={styles.metaValue}>{result.judge}</span>
+            {/* HEADER - Minimalistisk */}
+            <header className={styles.header}>
+                <div className={styles.container}>
+                    <div className={styles.infoLine}>
+                        <span>{result.date}</span> • <span>{result.location}</span>
+                    </div>
+                    <h1 className={styles.title}>{result.event}</h1>
+                    <p className={styles.typeTag}>{result.type}</p>
+                </div>
+            </header>
+
+            {/* TEXTRUTA: DAGEN - Centrerad och läsvänlig */}
+            <section className={styles.storySection}>
+                <div className={styles.storyCard}>
+                    <h2 className={styles.storyTitle}>Om dagen</h2>
+                    <div className={styles.prose}>
+                        <PortableText value={result.description} />
+                    </div>
+                    {result.judge && (
+                        <p className={styles.judgeSignature}>— Domare: {result.judge}</p>
+                    )}
+                </div>
+            </section>
+
+            {/* EKIPAGE-GALLERI */}
+            <section className={styles.gallerySection}>
+                <div className={styles.container}>
+                    <h2 className={styles.galleryTitle}>Evenemangsgalleri</h2>
+                    <div className={styles.grid}>
+                        {result.teams?.map((team: any, i: number) => (
+                            <div key={i} className={styles.card}>
+                                <div className={styles.imageWrapper}>
+                                    {team.photo ? (
+                                        <Image 
+                                            src={urlFor(team.photo).url()} 
+                                            alt={team.name} 
+                                            fill 
+                                            className={styles.img} 
+                                        />
+                                    ) : (
+                                        <div className={styles.noPhoto}>Ingen bild</div>
+                                    )}
+                                    <div className={styles.placementBadge}>{team.placement}</div>
                                 </div>
-                            )}
-                        </div>
-                    </div>
-                </header>
-
-                {/* BILDEN - Stor och tydlig i fokus */}
-                {result.image && (
-                    <div className={styles.imageSection}>
-                        <div className={styles.imageContainer}>
-                            <Image
-                                src={urlFor(result.image).url()}
-                                alt={`Pristagare på ${result.event}`}
-                                width={1000}  // Basbredd
-                                height={600}  // Bas-propertioner
-                                className={styles.mainImage}
-                                priority
-                            />
-                            {/* En diskret bildtext under förhöjer den redaktionella känslan */}
-                        </div>
-                    </div>
-                )}
-
-                {/* RESULTATLISTAN */}
-                <section className={styles.contentSection}>
-                    <div className={styles.containerSmall}>
-                        <div className={styles.resultsCard}>
-                            <h2 className={styles.resultsTitle}>Officiella Resultat</h2>
-                            <div className={styles.resultBody}>
-                                {result.description}
+                                <div className={styles.cardContent}>
+                                    <h3>{team.name}</h3>
+                                    <p>{team.resultText}</p>
+                                </div>
                             </div>
-                        </div>
-
-                        <footer className={styles.footer}>
-                            <Link href="/all-results" className={styles.backBtn}>
-                                ← Tillbaka till alla resultat
-                            </Link>
-                        </footer>
+                        ))}
                     </div>
-                </section>
-            </article>
+                </div>
+            </section>
+
+            <footer className={styles.footer}>
+                <Link href="/all-results" className={styles.backLink}>Tillbaka till alla resultat</Link>
+            </footer>
         </main>
     );
 }

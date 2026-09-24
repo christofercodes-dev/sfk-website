@@ -52,7 +52,7 @@
 .aboutFlow {
   max-width: 800px;
   margin: 0 auto 60px;
-  text-align: center;
+  text-align: left;
 }
 
 .leadText {
@@ -61,6 +61,8 @@
   color: #444;
   text-align: left;
 }
+
+
 
 /* LISTAN (Samma som Aktiviteter) */
 .list {

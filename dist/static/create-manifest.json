@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "createdAt": "2026-08-05T20:43:32.962Z",
+  "workspaces": [
+    {
+      "name": "sodra-fagelhundklubben",
+      "title": "Södra Fågelhundklubben",
+      "basePath": "/studio",
+      "projectId": "b505vpsi",
+      "dataset": "production",
+      "icon": null,
+      "mediaLibrary": {
+        "enabled": false
+      },
+      "schema": "7faff74a.create-schema.json",
+      "tools": "d8640c31.create-tools.json"
+    }
+  ],
+  "studioVersion": "4.22.0"
+}

@@ -9,7 +9,7 @@
     justify-content: center;
     overflow: hidden;
     /* Bakgrundsbild med mörk overlay */
-    background-image: linear-gradient(rgba(13, 18, 14, 0.6), rgba(13, 18, 14, 0.6)), url('/images/bg-image-setter.webp');
+    background-image: linear-gradient(rgba(13, 18, 14, 0.6), rgba(13, 18, 14, 0.6)), url('/images/setter-bg-dogs.png');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -102,7 +102,6 @@
 .heroButtonPrimary {
     background-color: #f39c12;
     color: #fff; /* Mörk text på guldknappen för bättre läsbarhet */
-    border: 1px solid #f39c12;
 }
 
 .heroButtonPrimary:hover {

@@ -49,6 +49,7 @@ export default function Navbar({ forceSolid = false }: NavbarProps) {
     /* { name: 'Våra kurser', path: '/courses' }, */
     { name: 'Resultat', path: '/all-results' },
     { name: 'Om oss', path: '/board' },
+    { name: 'Länkar', path: '/links' },
   ];
 
   return (
@@ -57,12 +58,12 @@ export default function Navbar({ forceSolid = false }: NavbarProps) {
         <Link href="/" className={styles.logo} onClick={() => setIsMobileMenuOpen(false)}>
           <div className={styles.logoWrapper}>
             <Image
-              src="/images/sfk-logo.png" // Kontrollera att sökvägen och filnamnet stämmer
+              src="/images/logga.png"
               alt="Södra Fågelhundklubben"
-              width={70}  // Justera bredden så den passar din logga
-              height={70} // Justera höjden så den passar din logga
+              width={60}
+              height={60}
               className={styles.logoImage}
-              priority // Gör att loggan laddas omedelbart
+              priority
             />
           </div>
         </Link>

@@ -8,15 +8,12 @@
   import Footer from '@/components/Footer';
   import Navbar from '@/components/Navbar';
   import LatestResults from '@/components/LatestResults';
-  import Partners from '@/components/Partners';
-
   export default function HomePage() {
     return (
       <main>
         <Hero /> 
          {/* <InfoCards/> */}
          <AboutSection/>
-         <Partners/>
         <LatestResults/>
          {/* <Specialties/> */}
  

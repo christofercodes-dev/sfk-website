@@ -6,23 +6,24 @@ import styles from './Board.module.css';
 
 export default function Board() {
   const members = [
-    { role: "Ordförande", name: "Björn Danås", location: "Södra Sandby", phone: "070 785 89 27", email: "amoanda(@)hotmail.com" },
-    { role: "Ledamot, Vice Ordförande", name: "Bjerke Andersson", location: "Blentarp", phone: "0416-161 40", email: "bjerke.andersson(@)telia.com" },
-    { role: "Ledamot, Suppleant 2:a", name: "Jan Andersson", location: "Trelleborg", phone: "0723-962103", email: "jan1968(@)live.se" },
-    { role: "Ledamot", name: "Alexander Bennergård", location: "Lund", email: "alex.ferdi(@)hotmail.com" },
-    { role: "Ledamot", name: "Andras Talpai", location: "Vollsjö", phone: "0734-206249", email: "andras.talpai(@)sydskane.nu" },
-    { role: "Suppleant 1:a", name: "Ann-Helen Jönsson", location: "Eslöv", phone: "0703 441187", email: "annhjons(@)gmail.com" },
-    { role: "Kassör utom styrelsen", name: "Eva Andersson", phone: "070 316 14 00", email: "bjerke.andersson(@)telia.com" },
-    { role: "Webbredaktör", name: "Karl Sahlin", phone: "1234566", email: "webb@webb.se" },
+    { role: "Ordförande", name: "Björn Danås", location: "Södra Sandby", phone: "070 785 89 27", email: "amoanda@hotmail.com" },
+    { role: "Ledamot", name: "Bjerke Andersson", location: "Sövde", phone: "041 61 61 40", email: "bjerke.andersson@telia.com" },
+    { role: "Sekreterare", name: "Jan Andersson", location: "Trelleborg", phone: "072 396 21 03", email: "jan1968@live.se" },
+    { role: "Ledamot", name: "Alexander Bennergård", location: "Lund", email: "alex.ferdi@hotmail.com" },
+    { role: "Ledamot", name: "Andras Talpai", location: "Vollsjö", phone: "073 420 62 49", email: "andras.talpai@sydskane.nu" },
+    { role: "Ledamot", name: "Ann-Helen Jönsson", location: "Eslöv", phone: "070 344 11 87", email: "annhjons@gmail.com" },
+    { role: "Kassör utom styrelsen", name: "Eva Andersson", location: "Sövde", phone: "070 316 14 00", email: "bjerke.andersson@telia.com" },
+    { role: "Webbredaktör, Suppleant", name: "Karl Sahlin", location: "Fränninge", phone: "073 849 37 01", email: "karl.sahlin@yahoo.com" },
+    { role: "Suppleant", name: "Simon Jägerman", location: "Rydsgård", phone: "072 441 91 61", email: "simon.jagerman@gmail.com" },
   ];
 
   return (
     <main className={styles.wrapper}>
       <Navbar forceSolid={true} />
-      
+
       <section className={styles.section}>
         <div className={styles.container}>
-          
+
           {/* SEKTION: HISTORIA */}
           <header className={styles.header}>
             <span className={styles.label}>Vår historia</span>
@@ -30,15 +31,54 @@ export default function Board() {
           </header>
 
           <div className={styles.aboutFlow}>
-            <p className={styles.leadText}>
-            Södra Fågelhundklubben, SFK, bildades 1968 som en av fem lokalklubbar, och är idag en av nio lokalklubbar under Fågelhundklubbarnas Arbetsutskott, FA.
+            <p>
+              FA är en samarbetsorganisation som består av representanter för de fyra
+              specialklubbarna för Brittiska Stående Fågelhundar: Svenska Pointerklubben
+              (SVPK), Svenska Setterklubben för Engelsk Setter (SSK), Svenska
+              Gordonsetterklubben (SGSK) samt Svenska-Irländsk Setterklubben (SISK),
+              associerade med Svenska Kennelklubben.
+            </p>
+            <br/>
 
-FA är en samarbetsorganisation som består av representanter för de fyra specialklubbarna för Brittiska Stående Fågelhundar, Svenska Pointerklubben, SVPK, Svenska Setterklubben för Engelsk Setter, SSK, Svenska Gordonsetterklubben, SGSK, samt Svenska-Irländsk Setterklubben, SISK, associerade med Svenska Kennelklubben.
-Lokalklubbarna är fördelade över landet och tillkom för att på det lokala planet tillgodose medlemmarnas intressen och främja samarbetet över rasgränserna.
+            <p>
+              Lokalklubbarna är fördelade över landet och tillkom för att på det lokala
+              planet tillgodose medlemmarnas intressen och främja samarbetet över
+              rasgränserna.
+            </p>
 
-SFK arrangerar ett Internationellt prov på våren och beroende på hur övriga klubbar har sina prov placerade, både geografiskt och tidsmässigt, har SFK  ett eller två höstprov också. SFK har också en utställning varje år. Vidare har SFK under några år haft sin omtyckta träningsdag, med Inofficiellt Klubbmästerskap.
-Om tillräckligt intresse finns anordnas dressyrkurs under våren-sommaren, som avslutas med apporteringstest. Den som vill apporteringstesta sin hund annan tid på året kan ta kontakt med klubben.
-Medlemskapet i SFK ingår i medlemsavgiften för specialklubben. Lokalklubbsindelningen sker efter postnummer, men möjlighet finns att välja annan lokalklubb.  Som medlem får Du 2 nummer av tidningen Avance, samt en årsbok per år.
+            <p>
+              SFK arrangerar ett internationellt prov på våren och, beroende på hur övriga
+              klubbars prov är placerade geografiskt och tidsmässigt, ett eller två
+              höstprov.
+            </p>
+
+            <p>
+              SFK arrangerar även en utställning varje år och har under flera år haft sin
+              uppskattade träningsdag med Inofficiellt Klubbmästerskap.
+            </p>
+            <br/>
+
+            <p>
+              Om tillräckligt intresse finns anordnas en dressyrkurs under våren och
+              sommaren som avslutas med apporteringstest.
+            </p>
+            <br/>
+
+            <p>
+              Den som vill apporteringstesta sin hund vid en annan tid på året kan ta
+              kontakt med klubben.
+            </p>
+            <br/>
+
+            <p>
+              Medlemskapet i SFK ingår i medlemsavgiften för specialklubben.
+              Lokalklubbsindelningen sker efter postnummer, men det finns möjlighet att
+              välja en annan lokalklubb.
+            </p>
+
+            <p>
+              Som medlem får du två nummer av tidningen <em>Avance</em> samt en årsbok
+              varje år.
             </p>
           </div>
 

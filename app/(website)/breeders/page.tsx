@@ -5,17 +5,17 @@ import styles from './Breeders.module.css';
 export default function Breeders() {
   const breeders = [
     {
-      kennel: "Avem Venatio",
-      breeder: "Andreas Bengtsson",
+      kennel: "Avem Venandi Kennel",
+      breeder: "Andras Talpai",
       breed: "Engelsk Setter",
       location: "Vollsjö",
-      phone: "070-123 45 67",
-      email: "andreas@example.com"
+      phone: "073-420 62 49",
+      email: "andras.talpai@sydskane.nu"
     },
     {
-      kennel: "Björås kennel",
+      kennel: "Björås Kennel",
       breeder: "Björn Danås",
-      breed: "Pointer, Gordonsetter, Irländsksetter, Workingcocker",
+      breed: "Pointer, Workingcocker",
       location: "Södra Sandby",
       phone: "070-785 89 27",
       email: "amoanda@hotmail.com"
@@ -29,17 +29,9 @@ export default function Breeders() {
       email: "sve@sydgym.se"
     },
     {
-      kennel: "Black Shetans Kennel",
-      breeder: "Stig & Kerstin Nilsson",
-      breed: "Pointer",
-      location: "Marieholm",
-      phone: "0413-700 01, 070-2478089",
-      email: "shetan@telia.com"
-    },
-    {
       kennel: "Janås Kennel",
       breeder: "Anita & Camilla Paradis",
-      breed: "Irländsksetter, Workingcocker",
+      breed: "Irländsk Setter, Workingcocker",
       location: "Södra Sandby",
       phone: "070 -544 06 35, 070-684 57 29",
       email: "Camilla.paradis@gmail.com"
@@ -47,18 +39,10 @@ export default function Breeders() {
     {
       kennel: "Minnesbergs Kennel",
       breeder: "Jan Andersson",
-      breed: "Gordonsetter, Irländsksetter, Workingcocker",
-      location: "Trelleborg",
+      breed: "Gordon Setter",
+      location: "Anderslöv",
       phone: "0723-962103",
       email: "jan1968@live.se"
-    },
-    {
-      kennel: "Rastorps Kennel",
-      breeder: "Mayvor Jonsson",
-      breed: "Irländsksetter",
-      location: "Blentarp",
-      phone: "070-577 97 29",
-      email: "info@rastorp.nu"
     },
     {
       kennel: "Rödmyrans Kennel",
@@ -92,7 +76,6 @@ export default function Breeders() {
       phone: "0415- 403 50",
       email: "bengt.sandin@swipnet.se"
     },
-    // Här kan du enkelt fylla på med fler objekt senare
   ];
 
   return (
@@ -102,7 +85,7 @@ export default function Breeders() {
         {/* CENTRERAD HEADER */}
         <header className={styles.header}>
           <span className={styles.label}>Avel & uppfödning</span>
-          <h2 className={styles.mainTitle}>Kennelregister <span>SFK</span></h2>
+          <h2 className={styles.mainTitle}>Uppfödare <span>SFK</span></h2>
         </header>
 
         <div className={styles.grid}>
@@ -134,7 +117,7 @@ export default function Breeders() {
           {/* Informationskort */}
           <article className={`${styles.card} ${styles.infoCard}`}>
             <div className={styles.infoContent}>
-              <h3 className={styles.infoTitle}>Valphänvisning</h3>
+              <h3 className={styles.infoTitle}>Valpkullar</h3>
               <p className={styles.infoText}>
                 Kontakta våra uppfödare direkt för information om planerade kullar och rasfrågor. 
               </p>

@@ -21,11 +21,8 @@ export default function Footer() {
               Södra Fågelhundklubben verkar för främjandet av brittiska stående fågelhundar i Skåne & Blekinge.
             </p>
             <div className={styles.socials}>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+              <a href="https://www.facebook.com/groups/549359785098219" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
                 <Facebook size={18} strokeWidth={1.5} />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-                <Instagram size={18} strokeWidth={1.5} />
               </a>
             </div>
           </div>
@@ -34,11 +31,11 @@ export default function Footer() {
           <div className={styles.navSection}>
             <h4 className={styles.columnTitle}>Register</h4>
             <ul className={styles.navList}>
-              <li><Link href="/activities">Program & Aktiviteter</Link></li>
-              <li><Link href="/all-results">Resultatarkiv</Link></li>
-              <li><Link href="/breeders">Anslutna Uppfödare</Link></li>
+              <li><Link href="/activities">Aktiviteter</Link></li>
+              <li><Link href="/all-results">Resultat</Link></li>
+              <li><Link href="/breeders">Uppfödare</Link></li>
               <li><Link href="/member">Medlemskap</Link></li>
-              <li><Link href="/board">Klubbstyrelsen</Link></li>
+              <li><Link href="/board">Om oss</Link></li>
             </ul>
           </div>
 
@@ -46,11 +43,11 @@ export default function Footer() {
           <div className={styles.contactSection}>
             <h4 className={styles.columnTitle}>Kontakt</h4>
             
-            <div className={styles.heritageCard}>
+         {/*    <div className={styles.heritageCard}>
               <span className={styles.cardTag}>Klubbfrågor</span>
               <h5 className={styles.cardName}>Sekreterare</h5>
               <a href="mailto:info@sfk.se" className={styles.cardEmail}>info@sfk.se</a>
-            </div>
+            </div> */}
 
             <div className={styles.heritageCard}>
               <span className={styles.cardTag}>Digitalt</span>
@@ -64,7 +61,7 @@ export default function Footer() {
           <div className={styles.bottomLine}></div>
           <div className={styles.bottomContent}>
             <p>© {currentYear} Södra Fågelhundklubben</p>
-            <p className={styles.traditionText}>Passion för fågelhundar i generationer</p>
+            <p className={styles.traditionText}>Passion för fågelhundar</p>
           </div>
         </div>
       </div>

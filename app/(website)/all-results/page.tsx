@@ -21,7 +21,7 @@ export default function AllResultsPage() {
   const [activeFilter, setActiveFilter] = useState('Alla');
 
   // Kategorier baserade på dina jaktprov/utställningstyper
-  const categories = ['Alla', 'Jaktprov', 'Utställning', 'Viltspår', 'Övrigt'];
+  const categories = ['Alla', 'Jaktprov', 'Utställning', 'Årspriser', 'Övrigt'];
 
   useEffect(() => {
     const fetchResults = async () => {
@@ -58,7 +58,7 @@ export default function AllResultsPage() {
           
           <header className={styles.header}>
             <span className={styles.label}>Arkiv</span>
-            <h2 className={styles.mainTitle}>Tävlings <span>resultat</span></h2>
+            <h2 className={styles.mainTitle}>SFK <span>resultat</span></h2>
             
             <nav className={styles.filterNav}>
               {categories.map((cat) => (

@@ -230,6 +230,46 @@
     color: #dadada;
 }
 
+/* Lägg till detta i din befintliga Member.module.css */
+
+.infoBox {
+  margin-top: 50px;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-left: 4px solid #1a1a1a;
+  font-style: italic;
+  color: #555;
+  line-height: 1.6;
+}
+
+.listItem {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 40px;
+  align-items: flex-start;
+}
+
+.listNumber {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ddd; /* Diskret siffra */
+  font-family: serif;
+}
+
+.listText h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.3rem;
+  color: #1a1a1a;
+}
+
+.listText p {
+  margin: 0;
+  color: #666;
+  line-height: 1.5;
+}
+
+
+
 /* Mobilanpassning */
 @media (max-width: 600px) {
     .ctaCard {

@@ -1,181 +1,256 @@
-/* --- Sektion & Layout --- */
 .section {
-  padding: 100px 0;
-  background-color: #ffffff; /* Eller #fdfdfd för att matcha de andra */
+  position: relative;
+  padding: 140px 0;
+  background: #ffffff;
+  overflow: hidden;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 100px;
   align-items: center;
 }
 
-/* --- Textinnehåll --- */
+/* =========================
+   TEXT
+========================= */
+
+.textColumn {
+  opacity: 0;
+  transform: translateX(-70px);
+  transition:
+    opacity 0.9s ease,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.visible .textColumn {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .label {
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
+  display: block;
+  margin-bottom: 18px;
+
   font-size: 0.75rem;
   font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+
   color: #8d6e63;
-  display: block;
-  margin-bottom: 12px;
 }
 
 .title {
-  font-size: 3rem;
+  margin: 0 0 35px;
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.05;
   font-weight: 800;
-  margin: 0 0 25px 0;
+  letter-spacing: -0.03em;
+
   color: #1a1d1a;
-  line-height: 1.1;
 }
 
 .title span {
-  font-style: italic;
-  font-weight: 400;
   color: #f39c12;
+  font-weight: 400;
+  font-style: italic;
 }
 
-.lead {
-  font-size: 1.2rem;
-  color: #1a1d1a;
-  font-weight: 500;
-  margin-bottom: 20px;
+.content {
+  max-width: 570px;
+
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #666;
 }
 
 .content p {
-  color: #666;
+  margin: 0 0 22px;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+.lead {
+  font-size: 1.15rem;
   line-height: 1.7;
-  margin-bottom: 20px;
-
+  color: #333;
+  font-weight: 500;
 }
 
-/* --- Statistik --- */
-.statsRow {
-  display: flex;
-  gap: 40px;
-  margin: 40px 0;
-  padding: 30px 0;
-  border-top: 1px solid #f0f0f0;
-  border-bottom: 1px solid #f0f0f0;
-}
+/* =========================
+   BILD
+========================= */
 
-.statItem {
-  display: flex;
-  flex-direction: column;
-}
-
-.statValue {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #1a1d1a;
-}
-
-.statLabel {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  color: #8d6e63;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-}
-
-/* --- Knappen (Matchar din valda stil) --- */
-.archiveBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  background-color: #f39c12;
-  color: #ffffff;
-  padding: 14px 32px;
-  border-radius: 4px; /* Din specifika kant-radie */
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-}
-
-.archiveBtn span {
-  transition: transform 0.3s ease;
-}
-
-.archiveBtn:hover {
-  background-color: #f39c12;
-  color: #0e1d13;
-  box-shadow: 0 8px 20px rgba(243, 156, 18, 0.2);
-  transform: translateY(-2px);
-}
-
-.archiveBtn:hover span {
-  transform: translateX(5px);
-}
-
-/* --- Bildkolumn --- */
 .imageColumn {
-  position: relative;
+  opacity: 0;
+  transition:
+    opacity 1s ease 0.15s,
+    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+
+.visible .imageColumn {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .imageFrame {
   position: relative;
-  height: 550px;
+
   width: 100%;
-  border-radius: 4px;
-  overflow: visible; /* För att den dekorativa boxen ska synas */
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.7s ease,
+    box-shadow 0.7s ease;
 }
 
-.mainImage {
-  object-fit: cover;
-  border-radius: 4px;
-  z-index: 2;
-}
 
-.decorativeBox {
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  width: 100px;
-  height: 100px;
-  background-color: #f8f5f2;
-  border-radius: 4px;
-  z-index: 1;
-}
+
+/* =========================
+   CAPTION
+========================= */
 
 .caption {
   display: block;
-  margin-top: 20px;
-  font-size: 0.85rem;
-  font-style: italic;
-  color: #999;
+
+  margin-top: 18px;
+
   text-align: right;
+
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+
+  color: #999;
 }
 
-/* --- Mobilanpassning --- */
-@media (max-width: 950px) {
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .section {
+    padding: 100px 0;
+  }
+
+  .container {
+    padding: 0 30px;
+  }
+
+  .grid {
+    gap: 60px;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+}
+
+/* =========================
+   MOBIL
+========================= */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
   .grid {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 60px;
+  }
+
+  /*
+    På mobil kommer texten
+    uppifrån istället.
+  */
+  .textColumn {
+    transform: translateY(40px);
+  }
+
+  .visible .textColumn {
+    transform: translateY(0);
+  }
+
+  .imageColumn {
+    transform: translateY(40px);
+  }
+
+  .visible .imageColumn {
+    transform: translateY(0);
+  }
+
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 28px;
+  }
+
+  .content {
+    font-size: 0.95rem;
+  }
+
+  .lead {
+    font-size: 1.05rem;
+  }
+
+  .imageFrame {
+    transform: rotate(1deg);
+  }
+}
+
+/* =========================
+   LITEN MOBIL
+========================= */
+
+@media (max-width: 480px) {
+  .section {
+    padding: 70px 0;
   }
 
   .title {
     font-size: 2.2rem;
   }
 
+  .imageFrame::before {
+    top: 12px;
+    left: -12px;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .textColumn,
+  .imageColumn {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .mainImage {
+    transform: none;
+    transition: none;
+  }
+
   .imageFrame {
-    height: 400px;
-  }
-
-  .statsRow {
-    gap: 20px;
-    justify-content: space-between;
-  }
-
-  .archiveBtn {
-    width: 100%;
-    justify-content: center;
+    transform: none;
+    transition: none;
   }
 }

@@ -5,7 +5,7 @@ import styles from './Gallery.module.css';
 
 export default function Gallery() {
   const images = [
-    { src: '/images/bg-image-setter.webp', alt: 'Fältarbete' },
+    { src: '/images/hund.jpg', alt: 'Fältarbete' },
     { src: '/images/sfk-img1.jpg', alt: 'Träning' },
     { src: '/images/sfk-img2.jpg', alt: 'Gemenskap' },
   ];
