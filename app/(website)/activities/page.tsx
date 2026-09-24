@@ -67,7 +67,7 @@ export default function AllActivitiesPage() {
   };
 
   return (
-    <main className={styles.wrapper}>
+    <main id="all-activities" className={styles.wrapper}>
       <Navbar forceSolid={true} />
 
       <section className={styles.section}>

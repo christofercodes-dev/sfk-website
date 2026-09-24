@@ -1,263 +1,274 @@
-.wrapper {
+.section {
+  width: 100%;
   padding: 80px 0;
-  background-color: #fdfdfd; /* Samma ljusa bakgrund */
+  background: #fdfdfd;
 }
 
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
-.header {
+/* =========================
+   HEADER
+========================= */
+
+.topRow {
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
   margin-bottom: 45px;
+}
+
+.headerContent {
+  min-width: 0;
 }
 
 .label {
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #8d6e63;
   display: block;
   margin-bottom: 8px;
+
+  color: #8d6e63;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: 800;
   margin: 0;
+
   color: #1a1d1a;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.1;
 }
 
 .title span {
+  color: #f39c12;
   font-style: italic;
   font-weight: 400;
-  color: #f39c12; /* Samma orange accent */
 }
 
-.calendarBtn {
+/* =========================
+   ARCHIVE BUTTON
+========================= */
+
+.archiveBtn {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  color: #000000;
- 
-  border-radius: 4px; /* Rundad modern knapp */
-  text-decoration: none;
-  font-weight: 600;
+  gap: 10px;
+
+  flex-shrink: 0;
+
+  padding: 12px 0;
+
+  color: #1a1d1a;
   font-size: 0.9rem;
-  transition: all 0.3s ease;
+  font-weight: 600;
+  text-decoration: none;
+
+  border-bottom: 1px solid #1a1d1a;
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    gap 0.25s ease;
 }
 
-
-.calendarBtn:hover {
-  color: #7f7e7e;                /* Texten blir vit */
-
+.archiveBtn:hover {
+  gap: 15px;
+  color: #f39c12;
+  border-color: #f39c12;
 }
 
+/* =========================
+   GRID
+========================= */
 
-
-/* Justering för headern så knappen hamnar rätt */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; /* Ändrat från flex-end till center för bättre balans */
-  margin-bottom: 45px;
-}
-
-/* Mobil-specifikt */
-@media (max-width: 850px) {
-  .calendarBtn {
-    width: 100%; /* Knappen tar hela bredden på mobilen */
-    justify-content: center;
-    padding: 16px;
-  }
-}
-
-/* Grid-layout likt LatestResults */
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 30px;
 }
 
+/* =========================
+   CARD
+========================= */
+
 .card {
+  min-width: 0;
+  overflow: hidden;
+
   background: #ffffff;
+
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Samma mjuka skugga */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  border: 1px solid rgba(0,0,0,0.03);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
 }
 
-.cardContent {
+.content {
   padding: 30px;
 }
 
-.cardTop {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  margin-bottom: 20px;
-}
+/* =========================
+   CATEGORY
+========================= */
 
-.dateBadge {
+.badge {
+  display: inline-block;
+
+  margin-bottom: 15px;
+  padding: 6px 10px;
+
   background: #f8f5f2;
+
+  border-radius: 6px;
+
   color: #8d6e63;
-  width: 60px;
-  height: 60px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.day {
-  font-size: 1.2rem;
-  font-weight: 800;
-  line-height: 1;
-}
-
-.month {
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
+
+/* =========================
+   TITLE
+========================= */
+
+.eventTitle {
+  margin: 0 0 15px;
+
+  color: #1a1d1a;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+/* =========================
+   META
+========================= */
 
 .meta {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
+  flex-wrap: wrap;
+  gap: 8px 18px;
 
-.category {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #f39c12;
-  letter-spacing: 0.05em;
-}
+  margin-bottom: 20px;
 
-.location {
+  color: #777;
   font-size: 0.85rem;
-  color: #999;
+  line-height: 1.5;
 }
 
-.eventTitle {
-  font-size: 1.5rem;
-  color: #1a1d1a;
-  margin: 0 0 12px 0;
-  line-height: 1.2;
-}
+/* =========================
+   DESCRIPTION
+========================= */
 
 .description {
+  display: -webkit-box;
+
+  margin: 0;
+
+  overflow: hidden;
+
   color: #666;
   font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 25px;
-  /* Begränsa till 3 rader text */
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
+  line-height: 1.65;
+
   -webkit-box-orient: vertical;
-  overflow: hidden;
+  -webkit-line-clamp: 3;
 }
 
-.footer {
-  padding-top: 20px;
-  border-top: 1px solid #f0f0f0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.moreText {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #1a1d1a;
-}
-
-
-
-/* Mobilanpassning */
-@media (max-width: 850px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .title {
-    font-size: 2rem;
-  }
-
-  .desktopLink {
-    display: none;
-  }
-}
-
-.mobileLinkWrapper {
-  display: none;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-@media (max-width: 850px) {
-  .mobileLinkWrapper {
-    display: flex;
-  }
-}
-
-.mobileLink {
-  color: #8d6e63;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-/* --- Responsivitet (Mobil & Tablet) --- */
+/* =========================
+   TABLET
+========================= */
 
 @media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr; /* Kort staplas på varandra */
-    gap: 20px;
+  .section {
+    padding: 65px 0;
   }
 
-  .header {
-    flex-direction: column; /* Titeln överst, knappen under */
+  .topRow {
     align-items: flex-start;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .section {
+    padding: 50px 0;
+  }
+
+  .container {
+    padding: 0 18px;
+  }
+
+  .topRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
     margin-bottom: 30px;
   }
 
-  .desktopLink {
-    display: none; /* Gömmer knappen i headern på mobil om du vill flytta den */
-  }
-
   .title {
     font-size: 2rem;
   }
-}
 
-.mobileLinkWrapper {
-  display: none;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-@media (max-width: 900px) {
-  .mobileLinkWrapper {
-    display: flex;
+  .archiveBtn {
+    padding: 10px 0;
   }
-  
-  /* Gör knappen i botten (om du har en) fullbredd på mobil */
-  .mobileLinkWrapper .calendarBtn {
-    width: 100%;
-    justify-content: center;
+
+  .content {
+    padding: 24px;
+  }
+
+  .eventTitle {
+    font-size: 1.3rem;
+  }
+
+  .meta {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .content {
+    padding: 20px;
   }
 }

@@ -80,19 +80,21 @@ export default async function ActivityPage({
   }
 
   const formattedDate = result.date
-    ? new Date(result.date).toLocaleDateString("sv-SE", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      })
-    : null;
+  ? new Date(result.date).toLocaleDateString("sv-SE", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      timeZone: "Europe/Stockholm",
+    })
+  : null;
 
-  const formattedTime = result.date
-    ? new Date(result.date).toLocaleTimeString("sv-SE", {
-        hour: "2-digit",
-        minute: "2-digit",
-      })
-    : null;
+const formattedTime = result.date
+  ? new Date(result.date).toLocaleTimeString("sv-SE", {
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZone: "Europe/Stockholm",
+    })
+  : null;
 
   return (
     <main className={styles.main}>
@@ -242,7 +244,7 @@ export default async function ActivityPage({
       {/* TILLBAKA */}
       <footer className={styles.footer}>
         <Link
-          href="/all-activities"
+          href="/activities"
           className={styles.backLink}
         >
           ← Tillbaka till alla aktiviteter

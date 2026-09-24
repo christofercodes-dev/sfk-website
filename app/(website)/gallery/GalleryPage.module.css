@@ -1,144 +1,291 @@
 .wrapper {
-  background-color: #fff;
   min-height: 100vh;
+  background-color: #fff;
   padding-bottom: 80px;
 }
 
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* --- Behåller din ursprungliga titel-stil --- */
+/* =========================
+   HERO
+========================= */
+
 .hero {
   padding: 100px 0 60px;
-  text-align: center;
   margin-top: 50px;
+  text-align: center;
 }
 
 .label {
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
+  display: block;
+
+  color: #8d6e63;
+
   font-size: 0.75rem;
   font-weight: 700;
-  color: #8d6e63;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 
 .title {
+  margin: 15px 0 0;
+
   font-size: 3rem;
   font-weight: 800;
-  margin: 15px 0;
+  line-height: 1.1;
 }
 
 .title span {
+  color: #f39c12;
   font-style: italic;
   font-weight: 400;
-  color: #f39c12; /* Din originalfärg */
 }
 
-/* --- Uppdaterat bildgalleri --- */
+/* =========================
+   GALLERY
+========================= */
+
 .simpleGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 25px; /* Något mer luft mellan bilderna */
+  gap: 25px;
 }
+
+/* Bildkortet är en knapp eftersom bilden ska vara klickbar */
 
 .card {
   position: relative;
-  border-radius: 8px; /* Mjukare hörn än 4px */
+
+  display: block;
+
+  width: 100%;
+  padding: 0;
+
+  border: 0;
+  border-radius: 8px;
+
   overflow: hidden;
+
   background-color: #f5f5f5;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
 }
+
+/* Ingen hover-animation */
+
+.card:hover {
+  transform: none;
+}
+
+/* =========================
+   IMAGE
+========================= */
 
 .imageWrapper {
   position: relative;
+
   width: 100%;
-  aspect-ratio: 1 / 1; 
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
 }
 
 .image {
   object-fit: cover;
-  transition: transform 0.7s ease;
 }
 
-/* --- Förbättrad Hover-effekt --- */
-.card:hover {
-  transform: translateY(-5px); /* Korten lyfter lite när man pekar på dem */
-}
+/* Ingen zoom/transition på hover */
 
-.card:hover .image {
-  transform: scale(1.1);
-}
+/* =========================
+   LIGHTBOX
+========================= */
 
-/* --- Snyggare Overlay --- */
-.overlay {
-  position: absolute;
+.lightbox {
+  position: fixed;
   inset: 0;
-  /* Mjukare gradient som inte täcker hela bilden direkt */
-  background: linear-gradient(
-    to bottom, 
-    transparent 40%, 
-    rgba(0,0,0,0.1) 60%, 
-    rgba(0,0,0,0.8) 100%
-  );
+
+  z-index: 9999;
+
   display: flex;
-  align-items: flex-end;
-  padding: 25px;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  backdrop-filter: blur(1px); /* Ger en lyxig glaskänsla */
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 40px;
+
+  background: rgba(0, 0, 0, 0.92);
+
+  cursor: zoom-out;
+
+  animation: lightboxFadeIn 0.2s ease-out;
 }
 
-.card:hover .overlay {
-  opacity: 1;
+@keyframes lightboxFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
-.info {
-  color: white;
-  /* Texten glider upp en aning vid hover */
-  transform: translateY(10px);
-  transition: transform 0.3s ease-out;
+/* =========================
+   LARGE IMAGE
+========================= */
+
+.lightboxImage {
+  position: relative;
+
+  width: min(90vw, 1400px);
+  height: min(85vh, 900px);
+
+  cursor: default;
+
+  animation: imageFadeIn 0.25s ease-out;
 }
 
-.card:hover .info {
-  transform: translateY(0);
+@keyframes imageFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.cat {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  color: #f39c12; /* Matchar din accentfärg i titeln */
-  font-weight: 700;
-  display: block;
-  margin-bottom: 4px;
+.fullImage {
+  object-fit: contain;
 }
 
-.imageTitle {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0;
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.closeButton {
+  position: absolute;
+
+  top: 20px;
+  right: 25px;
+
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 45px;
+  height: 45px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #fff;
+
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1;
+
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
 }
 
-/* --- Responsivitet --- */
+/* =========================
+   TABLET
+========================= */
+
 @media (max-width: 900px) {
   .simpleGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 2.7rem;
   }
 }
 
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 600px) {
+  .wrapper {
+    padding-bottom: 50px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .hero {
+    padding: 80px 0 45px;
+    margin-top: 40px;
+  }
+
+  .label {
+    font-size: 0.7rem;
+  }
+
+  .title {
+    font-size: 2.4rem;
+  }
+
   .simpleGrid {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
-  .title { font-size: 2.5rem; }
-  
-  /* På mobil visar vi info direkt eftersom man inte kan "hovra" med mus */
-  .overlay {
-    opacity: 1;
-    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.7));
+
+  /* Lightbox på mobil */
+
+  .lightbox {
+    padding: 15px;
   }
-  .info { transform: translateY(0); }
-} 
+
+  .lightboxImage {
+    width: 95vw;
+    height: 80vh;
+  }
+
+  .closeButton {
+    top: 10px;
+    right: 10px;
+
+    width: 40px;
+    height: 40px;
+
+    font-size: 35px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+  .title {
+    font-size: 2.1rem;
+  }
+
+  .hero {
+    padding-top: 70px;
+  }
+}

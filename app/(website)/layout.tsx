@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 // Du kan behålla Geist om du vill använda den för kod eller specialfall, 
 // annars kan du radera Geist-importerna helt.
 import { Geist, Geist_Mono, Montserrat } from 'next/font/google';
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 import Navbar from "@/components/Navbar";
@@ -29,6 +30,7 @@ export const metadata: Metadata = {
   description: "En exklusiv jaktklubb med tradition och gemenskap.",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -36,14 +38,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="sv">
-      {/* Här lägger vi till montserrat.variable */}
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} antialiased`}
       >
+        <SmoothScroll />
+
         <Navbar />
+
         <main>
           {children}
         </main>
+
         <Footer />
       </body>
     </html>

@@ -63,7 +63,7 @@ export default async function UpcomingEvents() {
                 <span className={styles.badge}>{event.category}</span>
                 <h3 className={styles.eventTitle}>{event.title}</h3>
                 <p className={styles.meta}>
-                  📅 {event.date} | 📍 {event.location}
+                   📍 {event.location}
                 </p>
                 <p className={styles.description}>{event.description}</p>
               </div>
