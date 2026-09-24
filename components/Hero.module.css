@@ -157,6 +157,26 @@
         height: 100vh;
     }
 
+    .heroContent {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .heroTitle {
+        font-size: clamp(2rem, 9vw, 3rem);
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        max-width: 100%;
+    }
+
+    .heroDescription {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        max-width: 100%;
+    }
+
     .buttonGroup {
         flex-direction: column;
         align-items: center;
@@ -166,14 +186,15 @@
         margin: 0 auto;
     }
 
-    .heroButtonPrimary, .heroButtonSecondary {
+    .heroButtonPrimary,
+    .heroButtonSecondary {
         width: 100%;
         min-width: 0;
         padding: 16px 24px;
     }
 
     .scrollIndicator {
-        display: none; /* Gömmer scroll-indikatorn på korta mobilskärmar för att undvika clutter */
+        display: none;
     }
 }
 

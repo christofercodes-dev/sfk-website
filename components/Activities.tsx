@@ -30,7 +30,7 @@ export default function Activities() {
   ];
 
   return (
-    <section className={styles.section}>
+    <section id='activities' className={styles.section}>
       <div className={styles.container}>
         <header className={styles.header}>
           <span className={styles.label}>Säsonger</span>
