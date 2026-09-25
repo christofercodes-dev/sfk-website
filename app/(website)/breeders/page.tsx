@@ -76,6 +76,14 @@ export default function Breeders() {
       phone: "0415- 403 50",
       email: "bengt.sandin@swipnet.se"
     },
+    {
+      kennel: "Getryggen´s kennel",
+      breeder: "Bengt-Olof Jansson",
+      breed: "Gordon setter",
+      location: "Lomma",
+      phone: "070-0209720",
+      email: "boj@bojpab.com"
+    },
   ];
 
   return (
