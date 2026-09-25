@@ -76,10 +76,6 @@ export default function Board() {
               välja en annan lokalklubb.
             </p>
 
-            <p>
-              Som medlem får du två nummer av tidningen <em>Avance</em> samt en årsbok
-              varje år.
-            </p>
           </div>
 
           <div className={styles.notice}>
